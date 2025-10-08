@@ -66,7 +66,7 @@
     <section class="bg-[#F4FEFF] h-screen flex flex-col justify-center lg:flex-row">
         <div class="flex flex-col justify-center items-center">
             <h1>What We Offer?</h1>
-            <div class="flex flex-col lg:flex-row justify-center items-center gap-[3rem]"> <!-- keseluruhan cards-->
+            <div class="flex lg:flex-row justify-center items-center gap-[3rem]"> <!-- keseluruhan cards-->
                 <div class="flex flex-col overflow-hidden relative border-[4px] border-[#38358A] rounded-[10px]">
                     <img src="{{ asset('images/card1.jpeg') }}" alt="" class="w-[320px] h-[400px] object-cover ">
                     <div class="bg-[#38358A]/70 backdrop-blur-[5px] flex justify-center items-start text-start flex-col p-[0 40px] text-center mt-[-10rem] text-[#FFFF]">
