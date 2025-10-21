@@ -17,8 +17,12 @@
                 <!-- Right side  -->
                 <div class="flex items-center mr-[3rem]">
                     <div class="flex gap-[1.2rem] ">
-                        <button class="w-[87px] md:w-[67] h-[33px] md:h-[13px] bg-[#F4FEFF] border-[#4C47D6] rounded-[10px] text-[#4C47D6] hover:cursor-pointer hover:bg-[#4C47D6] hover:text-[#F4FEFF] hover:ease-in-out hover:duration-[0.2s]">Log In</button>
-                        <button class="w-[87px] h-[33px] bg-[#4C47D6] rounded-[10px] border-[0] text-[#ffff] hover:cursor-pointer">Register</button>
+                         <a href="{{ route('login') }}" class="inline-block">
+                            <button class="w-[87px] md:w-[67] h-[33px] md:h-[13px] bg-[#F4FEFF] border-[#4C47D6] rounded-[10px] text-[#4C47D6] hover:cursor-pointer hover:bg-[#4C47D6] hover:text-[#F4FEFF] hover:ease-in-out hover:duration-[0.2s]">Log In</button>
+                        </a>
+                        <a href="{{ route('register') }}" class="inline-block">
+                            <button class="w-[87px] h-[33px] bg-[#4C47D6] rounded-[10px] border-[0] text-[#ffff] hover:cursor-pointer">Register</button>
+                        </a>
                     </div>
                 </div>
         </header>
