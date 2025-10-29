@@ -50,13 +50,10 @@
                     <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
                     <h2>Dashboard</h2>
                 </div>
-                <a href="{{ route('quest') }}" >
-                    <div class="flex flex-row">
+                <div class="flex flex-row">
                     <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                     <h2>My Quest</h2>
                 </div>
-                </a>
-                
                 <div class="flex flex-row">
                     <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                     <h2>My Points</h2>
