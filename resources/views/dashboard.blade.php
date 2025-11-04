@@ -85,7 +85,7 @@
                     <img src="/images/kuning.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
                     <h4 class="ml-[0.5rem]">Membaca</h4>
                     <div class="">
-
+        
                     </div>
                     
                 </div>
