@@ -15,9 +15,9 @@ class QuizSeeder extends Seeder
     {
         // Example Quiz
         $quizId = DB::table('quizzes')->insertGetId([
-            'title' => 'Sample Quiz',
-            'description' => 'This is a sample quiz description.',
-            'difficulty' => 'Easy',
+            'title' => 'Cisco',
+            'description' => 'Cisco Packet Tracer',
+            'difficulty' => 'Sulit',
             'created_by' => 1, // Ensure user ID 1 exists
             'created_at' => now(),
             'updated_at' => now(),
@@ -26,23 +26,23 @@ class QuizSeeder extends Seeder
         // Example Questions and Options
         $questions = [
             [
-                'question_text' => 'What is the capital of France?',
+                'question_text' => 'Apa yang IOT?',
                 'points' => 5,
                 'options' => [
-                    ['option_text' => 'Berlin', 'is_correct' => false],
-                    ['option_text' => 'Madrid', 'is_correct' => false],
-                    ['option_text' => 'Paris', 'is_correct' => true],
-                    ['option_text' => 'Rome', 'is_correct' => false],
+                    ['option_text' => 'PC', 'is_correct' => false],
+                    ['option_text' => 'Lampu', 'is_correct' => true],
+                    ['option_text' => 'Server', 'is_correct' => false],
+                    ['option_text' => 'Router', 'is_correct' => false],
                 ],
             ],
             [
-                'question_text' => 'What is 2 + 2?',
+                'question_text' => 'Berapa 5 x 5?',
                 'points' => 3,
                 'options' => [
-                    ['option_text' => '3', 'is_correct' => false],
-                    ['option_text' => '4', 'is_correct' => true],
-                    ['option_text' => '5', 'is_correct' => false],
-                    ['option_text' => '6', 'is_correct' => false],
+                    ['option_text' => '20', 'is_correct' => false],
+                    ['option_text' => '45', 'is_correct' => false],
+                    ['option_text' => '15', 'is_correct' => false],
+                    ['option_text' => '25', 'is_correct' => true],
                 ],
             ],
         ];
