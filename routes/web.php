@@ -20,6 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/quest', [QuestController::class, 'questview'])->name('quest');
     Route::get('/point', [PointController::class, 'points'])->name('point');
+    Route::get('/quiz/{id}/question/{index?}', [QuizController::class, 'question'])->name('quiz.question');
+    Route::post('/quiz/{id}/question/{index}/answer', [QuizController::class, 'answer'])->name('quiz.answer');
+    Route::get('/quiz/{id}/results', [QuizController::class, 'results'])->name('quiz.results');
+    Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
 });
 
 require __DIR__.'/auth.php';
