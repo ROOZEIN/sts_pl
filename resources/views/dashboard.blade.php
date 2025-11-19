@@ -20,7 +20,7 @@
             <input 
                 type="search" 
                 placeholder=" Search quest"
-                class="bg-[#d1d1d1] text-gray-700 placeholder-gray-500 border-none rounded-md px-4 py-2 focus:outline-none w-[80rem] h-[2.5rem] rounded-[10px]"
+                class="bg-[#d1d1d1] text-gray-700 placeholder-gray-500 border-none px-4 py-2 focus:outline-none w-[80rem] h-[2.5rem] rounded-[10px]"
             >
         </div>
 
@@ -46,21 +46,25 @@
     <section>
         <div>
             <div class="bg-[#fff] w-[21rem] h-[60rem] absolute mt-[-1.99rem] flex  flex-col items-center text-[#A7B7D1]">
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
-                    <h2>Dashboard</h2>
-                </div>
+                <a href="{{ route('dashboard') }}">
+                    <div class="flex flex-row">
+                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
+                        <h2>Dashboard</h2>
+                    </div>
+                </a>
                 <a href="{{ route('quest') }}" >
                     <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
-                    <h2>My Quest</h2>
-                </div>
+                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                        <h2>My Quest</h2>
+                    </div>
                 </a>
                 
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
-                    <h2>My Points</h2>
-                </div>
+                <a href="{{ route('point') }}">
+                    <div class="flex flex-row">
+                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                        <h2>My Points</h2>
+                    </div>
+                </a>
                 <div class="flex flex-row">
                     <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                     <h2>My Progress</h2>
@@ -74,7 +78,7 @@
             </div>
             <div class="flex justify-center gap-[1rem] rounded-[]">
                 <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
-                    <img src="/images/ungu.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
+                    <img src="/images/ungu.png" alt="" class="w-[12     rem] h-[9rem] mb-[-1rem]">
                     <h4 class="ml-[0.5rem]">Membaca</h4>
                     <div class="">
 
@@ -83,7 +87,7 @@
                 </div>
                 <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
                     <img src="/images/kuning.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
+                    <h4 class="ml-[0.5rem]">Agama</h4>
                     <div class="">
         
                     </div>
@@ -91,7 +95,7 @@
                 </div>
                 <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
                     <img src="/images/hijau.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
+                    <h4 class="ml-[0.5rem]">Coding</h4>
                     <div class="">
 
                     </div>
@@ -99,7 +103,7 @@
                 </div>
                 <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
                     <img src="/images/abu.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
+                    <h4 class="ml-[0.5rem]">Cloud Computing</h4>
                     <div class="">
 
                     </div>
@@ -110,7 +114,7 @@
             <div class="flex justify-center">
                 <h2 class="flex justify-center">Yang Sedang Berlangsung</h2>
             </div>
-            <div class="bg-[#ffff] w-[50rem] h-[9rem] flex justify-center rounded-[10px] ml-[22rem] gap-[1rem]">
+            <div class="bg-[#ffff] w-[50rem] h-[9rem] flex justify-center rounded-[10px] ml-[22rem] gap-[1rem] items-center">
                 <img src="/images/mtk gambar.png" alt="" class="w-[8rem] h-[8rem] mt-[0.5rem] ml-[-4rem]"> 
 
                 <div class="mt-[-0.5rem]">
@@ -127,7 +131,7 @@
 
             </div>
             <div class="flex justify-end">
-                <div class="bg-[#ffff] w-[5rem] h-[5rem]">
+                <div class="bg-[#ffff] w-[5rem] h-[5rem]"> 
 
                 </div>
             </div>

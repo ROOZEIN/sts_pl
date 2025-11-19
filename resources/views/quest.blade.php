@@ -45,7 +45,7 @@
 
     <section>
         <div>
-            <div class="bg-[#fff] w-[21rem] h-[60rem] absolute mt-[-1.99rem] flex  flex-col items-center text-[#A7B7D1]">
+            <div class="bg-[#fff] w-[21rem] h-[60rem] absolute flex justify-start flex-col items-center text-[#A7B7D1]">
                 <div class="flex flex-row">
                     <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
                     <h2>Dashboard</h2>
@@ -63,71 +63,39 @@
                     <h2>My Progress</h2>
                 </div>
             </div>
-            <div class="flex justify-center mt-[2rem]">
-                <img src="/images/dashboard bg.png" alt="" class="w-[49rem] h-[15rem]">
-            </div>
-            <div class="flex justify-center">
-                <h2>Review Hari Ini</h2>
+            <div class="flex justify-center ml-[-30rem]">
+                <h2>My Quest</h2>
             </div>
             <div class="flex justify-center gap-[1rem] rounded-[]">
-                <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
-                    <img src="/images/ungu.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
-                    <div class="">
-
+                    <div class="flex flex-col bg-[#fff] w-[15rem] h-[30rem] rounded-[17px] justify-center items-center text-[#A7B7D1] space-y-1 ml-[15rem]">
+                        <img src="" alt="" class="w-[4rem] h-[4rem]">
+                        <h4 class="text-[#51547E] font-semibold mb-2">IPA</h4>
+                        <p class="m-0 leading-tight">Poin:</p>
+                        <p class="m-0 leading-tight">Total Soal:</p>
+                        <p class="m-0 leading-tight">Level:</p>
                     </div>
-
-                </div>
-                <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
-                    <img src="/images/kuning.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
-                    <div class="">
-
+                    <div class="flex flex-col bg-[#fff] w-[15rem] h-[30rem] rounded-[17px] justify-center items-center text-[#A7B7D1] space-y-1">
+                        <img src="" alt="" class="w-[4rem] h-[4rem]">
+                        <h4 class="text-[#51547E] font-semibold mb-2">IPA</h4>
+                        <p class="m-0 leading-tight">Poin:</p>
+                        <p class="m-0 leading-tight">Total Soal:</p>
+                        <p class="m-0 leading-tight">Level:</p>
                     </div>
-                    
-                </div>
-                <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
-                    <img src="/images/hijau.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
-                    <div class="">
-
+                    <div class="flex flex-col bg-[#fff] w-[15rem] h-[30rem] rounded-[17px] justify-center items-center text-[#A7B7D1] space-y-1">
+                        <img src="" alt="" class="w-[4rem] h-[4rem]">
+                        <h4 class="text-[#51547E] font-semibold mb-2">IPA</h4>
+                        <p class="m-0 leading-tight">Poin:</p>
+                        <p class="m-0 leading-tight">Total Soal:</p>
+                        <p class="m-0 leading-tight">Level:</p>
                     </div>
-                    
-                </div>
-                <div class="bg-[#ffff] w-[12rem] h-[15rem] rounded-[10px]">
-                    <img src="/images/abu.png" alt="" class="w-[12rem] h-[9rem] mb-[-1rem]">
-                    <h4 class="ml-[0.5rem]">Membaca</h4>
-                    <div class="">
-
+                    <div class="flex flex-col bg-[#fff] w-[15rem] h-[30rem] rounded-[17px] justify-center items-center text-[#A7B7D1] space-y-1">
+                        <img src="" alt="" class="w-[4rem] h-[4rem]">
+                        <h4 class="text-[#51547E] font-semibold mb-2">IPA</h4>
+                        <p class="m-0 leading-tight">Poin:</p>
+                        <p class="m-0 leading-tight">Total Soal:</p>
+                        <p class="m-0 leading-tight">Level:</p>
                     </div>
-                    
-                </div>
-            </div>
-
-            <div class="flex justify-center">
-                <h2 class="flex justify-center">Yang Sedang Berlangsung</h2>
-            </div>
-            <div class="bg-[#ffff] w-[50rem] h-[9rem] flex justify-center rounded-[10px] ml-[22rem] gap-[1rem]">
-                <img src="/images/mtk gambar.png" alt="" class="w-[8rem] h-[8rem] mt-[0.5rem] ml-[-4rem]"> 
-
-                <div class="mt-[-0.5rem]">
-                    <h2>Matematika - Letak Kuartil</h2>
-                    <p class="w-[30rem] mt-[-1rem]">Kuis singkat mengenai materi letak kuartil yang berbentuk pilihan ganda</p>
-                    <div class="rounded-[5rem] bg-[#19da63] w-[3rem] h-[1.5rem] mt-[-0.5rem]">
-
-                    </div>
-                    <div class="bg-[#b6b6b6] w-[20rem] h-[1rem] rounded-[2rem] ml-[16rem] mt-[-1.3rem]">
-
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="flex justify-end">
-                <div class="bg-[#ffff] w-[5rem] h-[5rem]">
-
-                </div>
-            </div>
+            </div>  
         </div>
     </section>
 </body>

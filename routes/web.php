@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestController;
 use App\Http\Controllers\QuizController;
@@ -18,10 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/quest', [QuestController::class, 'questview'])->name('quest');
-    Route::get('/quiz/{id}/question/{index?}', [QuizController::class, 'question'])->name('quiz.question');
-    Route::post('/quiz/{id}/question/{index}/answer', [QuizController::class, 'answer'])->name('quiz.answer');
-    Route::get('/quiz/{id}/results', [QuizController::class, 'results'])->name('quiz.results');
-    Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
+    Route::get('/point', [PointController::class, 'points'])->name('point');
 });
 
 require __DIR__.'/auth.php';
