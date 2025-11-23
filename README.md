@@ -1,71 +1,136 @@
-# EduQuest
+🏫 Tentang Website
 
-[![Generic badge](https://img.shields.io/badge/Tahap-Pengembangan-<COLOR>.svg)](https://shields.io/)
+Website ini merupakan platform pembelajaran interaktif yang menyediakan fitur kuis sebagai sarana siswa untuk mempelajari materi pelajaran sekolah. Selain kuis biasa, tersedia juga fitur quest, yaitu kuis khusus yang memberikan reward berupa currency (duit) setelah diselesaikan.
 
-## Website edukasi inovatif
+Dengan pendekatan gamifikasi ini, kegiatan belajar menjadi lebih menarik dan memberikan motivasi tambahan kepada siswa.
 
-> EduQuest merupakan sebuah website edukasi yang menyediakan layanan belajar yang menyenangkan. Para siswa tidak lagi merasakan jenuh saat belajar karena, kami pembelajaran yang kami tawarkan memiliki sistem quest. Di website ini, para siswa dapat termotivasi untuk belajar dan mengejar cita-cita mereka. EduQuest tidak hanya menyenangkan tetapi juga sangat membantu akademik siswa
+✨ Fitur Utama
+🔹 1. Kuis Pembelajaran
+
+Kuis berisi soal-soal yang berhubungan dengan materi pelajaran. Siswa dapat mengerjakan kuis untuk meningkatkan pemahaman mereka.
+
+🔹 2. Quest (Kuis dengan Reward)
+
+Quest adalah variasi kuis yang memberikan hadiah berupa currency. Fitur ini dirancang untuk menambah aspek kompetitif dan motivasi belajar.
+
+🔹 3. Sistem Reward / Currency
+
+Siswa memperoleh currency setiap kali berhasil menyelesaikan quest. Currency ini dapat digunakan sesuai fitur tambahan yang tersedia dalam website.
+
+🧱 Struktur Entitas Database
+
+Project ini menggunakan database bernama sts_pl, berisi 14 tabel sesuai dengan struktur yang terlihat pada phpMyAdmin. Berikut adalah entitas penting yang digunakan oleh sistem:
+
+🧑‍🎓 Tabel Inti Aplikasi (Kuis & User)
+Tabel	Fungsi
+users	Menyimpan data seluruh pengguna (murid/admin).
+quizzes	Menyimpan daftar kuis/quest.
+questions	Pertanyaan untuk setiap kuis.
+options	Pilihan jawaban untuk setiap pertanyaan.
+answers	Jawaban yang dipilih oleh user.
+quiz_attempts	Riwayat pengerjaan kuis, skor, status, dan waktu.
+⚙️ Tabel Sistem Laravel (Otomatis Dibuat)
+Tabel	Fungsi
+cache	Menyimpan cache aplikasi
+cache_locks	Locking mekanisme cache
+failed_jobs	Menyimpan job yang gagal
+jobs	Daftar job (queue)
+job_batches	Batch job Laravel
+migrations	Catatan migrasi Laravel
+password_reset_tokens	Token reset password
+sessions	Menangani sesi login user
+
+Total keseluruhan: 14 tabel
+
+🗄️ Setup Database (Sesuai Struktur Asli di phpMyAdmin)
+
+Website ini menggunakan phpMyAdmin + MySQL. Langkah-langkah setup-nya adalah sebagai berikut:
+
+1️⃣ Masuk ke phpMyAdmin
+
+Akses melalui browser:
+
+localhost/phpmyadmin
 
 
-## Instalasi ![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
+Login menggunakan kredensial server lokal (default XAMPP):
 
-sh
-git clone https://github.com/ROOZEIN/sts_pl.git
-cd sts_pl
-composer install
-npm install
-node app
+Username: root
 
+Password: (kosong)
 
-### Cara membuka website dari file repositori ![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
-sh
-php artisan serve
-composer run dev
+2️⃣ Buat Database Baru
 
+Klik New pada sidebar kiri
+
+Masukkan nama database:
+
+sts_pl
 
 
-## Penggunaan
+Klik Create
 
-- Melakukan Log In / Register akun terlebih dahulu
-- Navigasi
-Dalam website ini terdapat fitur :
-My Quest > Siswa mendapat 8 quest random setiap harinya. Quest dapat berupa mata pelajaran produktif maupun mata pelajaran umum. Setiap menyelesaikan quest, siswa akan mendapatkan poin yang berbeda.
-My Points > Siswa dapat melihat jumlah poin yang mereka miliki. Siswa juga dapat menukar poin yang mereka miliki menjadi nilai tambahan mata pelajaran maupun mata pelajaran umum manapun. Toko penukaran point selalu di refresh tiap 24 jam.
-My Progress > Siswa dapat melihat progress mereka selama belajar di EduQeust. Progress ditampilkan dalam bentuk angka total.
+3️⃣ Import Struktur Database (Jika Ada File SQL)
 
-## Kontribusi
-Kami dengan senang hati membuka kesempatan bagi kalian yang ingin berkontribusi dalam menyempurnakan website ini agar menjadi lebih baik. Kami harap kalian dapat membantu kami dalam melaporkan bugs, dan membagikan ide-ide baru yang dapat membantu website kami menjadi lebih menyenangkan. Bantuan kalian sangat berarti bagi kami.
+Jika project menyediakan file export seperti sts_pl.sql, lakukan:
 
-## Cara berkontribusi
-Berikut ini cara kalian dapat berkontribusi dengan kami.
-#### 1. Fork repositori
-#### 2. Clone repositori hasil fork ![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
-sh
-git clone https://github.com/ROOZEIN/sts_pl.git
-cd sts_pl
+Klik database sts_pl
 
-#### 3. Branch baru perubahan mu ![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
-sh
-git checkout -b perubahan-mu
+Masuk tab Import
 
-#### 4. Commit dan push ![Terminal](https://badgen.net/badge/icon/terminal?icon=terminal&label)
-sh
-git commit -m "Melakukan perubahan pada tampilan landing page"
-git push origin perubahan-mu
+Pilih file .sql
 
-#### 5. Pull request
+Klik Go
 
-#### Berikut rancangan kami
+Setelah itu, semua tabel berikut akan otomatis terbentuk:
 
-| Figma | Link |
-| ------ | ------ |
-| EduQuest | https://www.figma.com/design/euvMadiZ1jSliIqgmlZXSd/EduQuest?node-id=0-1&t=bZNpAUSkUXB6Se3L-1] |
+answers
 
-## Teknologi
+cache
 
-Berikut adalah daftar teknologi yang kami gunakan
+cache_locks
 
-- Laravel
-- Tailwind CSS
-- Laravel Flux
-- [![Visual Studio](https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label)](https://visualstudio.microsoft.com)
+failed_jobs
+
+jobs
+
+job_batches
+
+migrations
+
+options
+
+password_reset_tokens
+
+questions
+
+quizzes
+
+quiz_attempts
+
+sessions
+
+users
+
+4️⃣ Jika Tidak Ada File SQL
+
+Jika file SQL tidak tersedia, maka:
+
+Tabel inti (users, quizzes, questions, options, answers, quiz_attempts) harus dibuat manual atau via migration.
+
+Tabel sistem Laravel akan terbuat otomatis ketika menjalankan:
+
+php artisan migrate
+
+
+Dengan catatan: file migration Laravel sudah sesuai dan lengkap.
+
+💻 Teknologi yang Digunakan
+
+PHP (Backend)
+
+MySQL (Database)
+
+phpMyAdmin (Database Management)
+
+Laravel (Framework PHP)
