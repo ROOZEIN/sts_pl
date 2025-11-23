@@ -45,26 +45,30 @@
 
     <section>
         <div>
-            <div class="bg-[#fff] w-[21rem] h-[60rem] absolute flex justify-start flex-col items-center text-[#A7B7D1]">
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
-                    <h2>Dashboard</h2>
-                </div>
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
-                    <h2>My Quest</h2>
-                </div>
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
-                    <h2>My Points</h2>
-                </div>
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+            <div class="bg-[#fff] w-[21rem] h-[60rem] absolute mt-[-1.99rem] flex  flex-col items-center text-[#A7B7D1]">
+                <a href="{{ route('dashboard') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
+                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
+                        <h2>Dashboard</h2>
+                    </div>
+                </a>
+                <a href="{{ route('quest') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
+                        <img src="/images/myquest.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                        <h2>My Quest</h2>
+                    </div>
+                </a>
+                
+                <a href="{{ route('point') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
+                        <img src="/images/mypoint.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                        <h2>My Points</h2>
+                    </div>
+                </a>
+                <div class="flex flex-row justify-center items-center" >
+                    <img src="/images/progress.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                     <h2>My Progress</h2>
                 </div>
-            </div>
-            <div class="flex justify-center ml-[-30rem]">
-                <h2>My Quest</h2>
             </div>
             <div class="flex justify-center gap-[1rem] rounded-[]">
                     <div class="flex flex-col bg-[#fff] w-[15rem] h-[30rem] rounded-[17px] justify-center items-center text-[#A7B7D1] space-y-1 ml-[15rem]">

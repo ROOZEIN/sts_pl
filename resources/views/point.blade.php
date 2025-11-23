@@ -56,7 +56,7 @@
 
         <a href="{{ route('quest') }}">
             <div class="flex flex-row items-center gap-2 mt-[1.12rem]">
-                <img src="/images/house-normal.png" class="w-[2rem] h-[2rem]">
+                <img src="/images/l.png" class="w-[2rem] h-[2rem]">
                 <h2 class="text-[20px] font-semibold">My Quest</h2>
             </div>
         </a>

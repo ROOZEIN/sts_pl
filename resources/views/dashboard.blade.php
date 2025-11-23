@@ -46,27 +46,27 @@
     <section>
         <div>
             <div class="bg-[#fff] w-[21rem] h-[60rem] absolute mt-[-1.99rem] flex  flex-col items-center text-[#A7B7D1]">
-                <a href="{{ route('dashboard') }}">
-                    <div class="flex flex-row">
+                <a href="{{ route('dashboard') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
                         <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem] hover:cursor-pointer;">
                         <h2>Dashboard</h2>
                     </div>
                 </a>
-                <a href="{{ route('quest') }}" >
-                    <div class="flex flex-row">
-                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                <a href="{{ route('quest') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
+                        <img src="/images/myquest.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                         <h2>My Quest</h2>
                     </div>
                 </a>
                 
-                <a href="{{ route('point') }}">
-                    <div class="flex flex-row">
-                        <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                <a href="{{ route('point') }}" class="no-underline text-[#A7B7D1]">
+                    <div class="flex flex-row justify-center items-center">
+                        <img src="/images/mypoint.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                         <h2>My Points</h2>
                     </div>
                 </a>
-                <div class="flex flex-row">
-                    <img src="/images/house-normal.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
+                <div class="flex flex-row justify-center items-center" >
+                    <img src="/images/progress.png" alt="" class="w-[2rem] h-[2rem] mt-[1.12rem]">
                     <h2>My Progress</h2>
                 </div>
             </div>
@@ -129,11 +129,6 @@
                 </div>
 
 
-            </div>
-            <div class="flex justify-end">
-                <div class="bg-[#ffff] w-[5rem] h-[5rem]"> 
-
-                </div>
             </div>
         </div>
     </section>
