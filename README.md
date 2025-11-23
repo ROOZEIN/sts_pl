@@ -5,6 +5,7 @@ Website ini merupakan platform pembelajaran interaktif yang menyediakan fitur ku
 Dengan pendekatan gamifikasi ini, kegiatan belajar menjadi lebih menarik dan memberikan motivasi tambahan kepada siswa.
 
 ✨ Fitur Utama
+
 🔹 1. Kuis Pembelajaran
 
 Kuis berisi soal-soal yang berhubungan dengan materi pelajaran. Siswa dapat mengerjakan kuis untuk meningkatkan pemahaman mereka.
@@ -128,9 +129,22 @@ Dengan catatan: file migration Laravel sudah sesuai dan lengkap.
 💻 Teknologi yang Digunakan
 
 PHP (Backend)
-
 MySQL (Database)
 
 phpMyAdmin (Database Management)
 
 Laravel (Framework PHP)
+
+
+👥 Pembagian Tugas Tim
+
+Project ini dikembangkan oleh tiga anggota tim dengan peran masing-masing sebagai berikut:
+
+Aurellia Valeza Salim — Front-End Developer
+Bertanggung jawab pada tampilan, UI, dan interaksi pengguna.
+
+Vinisia Evelyn Jongnatan — Designer
+Merancang tampilan visual, layout, dan konsep antarmuka.
+
+Christian Rangga Putra — Back-End Developer
+Mengembangkan logika server, database, dan fitur inti aplikasi.
