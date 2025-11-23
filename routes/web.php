@@ -38,11 +38,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/quests-grid/create', [QuestController::class, 'create'])->name('quests.create');
     Route::post('/quests-grid', [QuestController::class, 'store'])->name('quests.store');
 
+    // single-quest edit/update (used by admin view)
+    Route::get('/quest/{id}/edit', [QuestController::class, 'edit'])->name('quest.edit');
+    Route::put('/quest/{id}', [QuestController::class, 'update'])->name('quest.update');
+
     Route::get('/quests/{quiz}/questions', [QuestController::class, 'questions'])->name('quests.questions');
     Route::post('/quests/{quiz}/questions', [QuestController::class, 'storeQuestion'])->name('quests.questions.store');
     Route::get('/quests/{quiz}/questions/{question}/edit', [QuestController::class, 'editQuestion'])->name('quests.questions.edit');
     Route::put('/quests/{quiz}/questions/{question}', [QuestController::class, 'updateQuestion'])->name('quests.questions.update');
     Route::delete('/quests/{quiz}/questions/{question}', [QuestController::class, 'destroyQuestion'])->name('quests.questions.destroy');
+
+    // debug route to inspect latest quiz (local/dev helper)
+    Route::get('/debug/latest-quiz', function () {
+        $quiz = \Illuminate\Support\Facades\DB::table('quizzes')->latest('id')->first();
+        if (! $quiz) return response()->json(['message' => 'no quizzes'], 404);
+        $questions = \Illuminate\Support\Facades\DB::table('questions')->where('quiz_id', $quiz->id)->get();
+        $questions->transform(function($q){
+            $q->options = \Illuminate\Support\Facades\DB::table('options')->where('question_id', $q->id)->get();
+            return $q;
+        });
+        return response()->json(['quiz' => $quiz, 'questions' => $questions]);
+    })->name('debug.latest.quiz');
 });
 
 require __DIR__.'/auth.php';

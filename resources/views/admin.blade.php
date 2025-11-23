@@ -97,20 +97,23 @@
             </div>
 
             <div>
-                <a href="{{ route('quest.edit', $quest->id ?? 1) }}" class="no-underline block">
-                    <div class="bg-[#ffff] w-[60rem] h-[4rem] rounded-[0.6rem] flex flex-row justify-center items-center gap-[12rem] mt-[1rem] cursor-pointer">
+                @foreach($quizzes as $quiz)
+                <a href="{{ route('quest.edit', $quiz->id) }}" class="no-underline block">
+                    <div class="bg-[#ffff] w-[60rem] h-[4rem] rounded-[0.6rem] flex flex-row justify-center items-center gap-[12rem] mt-[1rem] cursor-pointer quest-card"
+                         data-id="{{ $quiz->id }}" data-title="{{ $quiz->title }}" data-subject="{{ $quiz->description ?? '' }}" data-difficulty="{{ $quiz->difficulty ?? 'Mudah' }}">
                         <div class="flex flex-row justify-center items-center">
                             <img src="/images/paper.png" alt="" class="w-[1.5rem] h-[1.5rem]">
-                            <p class="ml-2">{{ $quest->title ?? 'Persebaran Data' }}</p>
+                            <p class="ml-2">{{ $quiz->title }}</p>
                         </div>
-                        <p>{{ $quest->subject ?? 'Matematika' }}</p>
+                        <p>{{ $quiz->description ?? '—' }}</p>
                         <div class="bg-[#22CC3B] w-[4rem] h-[1.5rem] rounded-[2rem] flex justify-center items-center text-[#ffff] font-[500]">
-                            <p class="text-[12px]">{{ $quest->difficulty ?? 'Mudah' }}</p>
+                            <p class="text-[12px]">{{ $quiz->difficulty ?? 'Mudah' }}</p>
                         </div>
                         <img src="/images/titik.png" alt="" class="w-[1.5rem] h-[1.5rem]">
                     </div>
                 </a>
-             </div>
+                @endforeach
+            </div>
         </div>
     </section>
 

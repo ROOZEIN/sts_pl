@@ -126,13 +126,13 @@ class QuestController extends Controller
     // show edit page
     public function edit($id)
     {
-        $quest = DB::table('quests')->where('id', $id)->first();
+        $quest = DB::table('quizzes')->where('id', $id)->first();
         if (! $quest) {
             abort(404);
         }
 
-        $questions = DB::table('questions')->where('quest_id', $id)->orderBy('position')->get()->map(function($q){
-            $q->options = DB::table('options')->where('question_id', $q->id)->orderBy('position')->get();
+        $questions = DB::table('questions')->where('quiz_id', $id)->orderBy('id')->get()->map(function($q){
+            $q->options = DB::table('options')->where('question_id', $q->id)->orderBy('id')->get();
             return $q;
         });
 
@@ -153,13 +153,13 @@ class QuestController extends Controller
         DB::beginTransaction();
         try {
             // update quest title
-            DB::table('quests')->where('id', $id)->update([
+            DB::table('quizzes')->where('id', $id)->update([
                 'title' => $data['title'],
                 'updated_at' => now(),
             ]);
 
             // remove existing questions & options (simple approach)
-            $existingQuestions = DB::table('questions')->where('quest_id', $id)->pluck('id')->toArray();
+            $existingQuestions = DB::table('questions')->where('quiz_id', $id)->pluck('id')->toArray();
             if (!empty($existingQuestions)) {
                 DB::table('options')->whereIn('question_id', $existingQuestions)->delete();
                 DB::table('questions')->whereIn('id', $existingQuestions)->delete();
@@ -169,19 +169,23 @@ class QuestController extends Controller
             if (!empty($data['questions'])) {
                 foreach ($data['questions'] as $qi => $q) {
                     $questionId = DB::table('questions')->insertGetId([
-                        'quest_id' => $id,
+                        'quiz_id' => $id,
                         'question_text' => $q['text'] ?? '',
-                        'position' => $qi,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ]);
 
                     if (!empty($q['options']) && is_array($q['options'])) {
                         foreach ($q['options'] as $oi => $opt) {
+                            $isCorrect = 0;
+                            if (!empty($q['correct']) && is_array($q['correct'])) {
+                                // accept either associative array of indexes or string values
+                                $isCorrect = !empty($q['correct'][$oi]) ? 1 : 0;
+                            }
                             DB::table('options')->insert([
                                 'question_id' => $questionId,
                                 'option_text' => $opt,
-                                'position' => $oi,
+                                'is_correct' => $isCorrect,
                                 'created_at' => now(),
                                 'updated_at' => now(),
                             ]);
@@ -196,5 +200,13 @@ class QuestController extends Controller
             DB::rollBack();
             return back()->withErrors($e->getMessage())->withInput();
         }
+    }
+
+    /**
+     * Compatibility route used in routes/web.php
+     */
+    public function questview()
+    {
+        return $this->index();
     }
 }

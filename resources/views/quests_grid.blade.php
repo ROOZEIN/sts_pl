@@ -4,7 +4,10 @@
   <div class="max-w-7xl mx-auto">
     <h1 class="text-2xl font-bold mb-6 flex items-center justify-between">
       <span>Quests grid</span>
-      <a href="{{ route('quests.create') }}" class="px-4 py-2 bg-[#4C47D6] text-white rounded">Make new quest</a>
+      <div class="flex items-center gap-3">
+        <a href="{{ route('dashboard') }}" class="px-3 py-2 bg-gray-100 text-gray-800 rounded">Back to dashboard</a>
+        <a href="{{ route('quests.create') }}" class="px-4 py-2 bg-[#4C47D6] text-white rounded">Make new quest</a>
+      </div>
     </h1>
 
     <div class="grid grid-cols-3 gap-6">
