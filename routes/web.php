@@ -32,10 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/quiz/{id}/question/{index}/answer', [QuizController::class, 'answer'])->name('quiz.answer');
     Route::get('/quiz/{id}/results', [QuizController::class, 'results'])->name('quiz.results');
     Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
-    // show edit page
-    Route::get('/quest/{id}/edit', [QuestController::class, 'edit'])->name('quest.edit');
-    // update handler
-    Route::put('/quest/{id}', [QuestController::class, 'update'])->name('quest.update');
+
+    // quests grid & question CRUD
+    Route::get('/quests-grid', [QuestController::class, 'index'])->name('quests.grid');
+    Route::get('/quests-grid/create', [QuestController::class, 'create'])->name('quests.create');
+    Route::post('/quests-grid', [QuestController::class, 'store'])->name('quests.store');
+
+    Route::get('/quests/{quiz}/questions', [QuestController::class, 'questions'])->name('quests.questions');
+    Route::post('/quests/{quiz}/questions', [QuestController::class, 'storeQuestion'])->name('quests.questions.store');
+    Route::get('/quests/{quiz}/questions/{question}/edit', [QuestController::class, 'editQuestion'])->name('quests.questions.edit');
+    Route::put('/quests/{quiz}/questions/{question}', [QuestController::class, 'updateQuestion'])->name('quests.questions.update');
+    Route::delete('/quests/{quiz}/questions/{question}', [QuestController::class, 'destroyQuestion'])->name('quests.questions.destroy');
 });
 
 require __DIR__.'/auth.php';

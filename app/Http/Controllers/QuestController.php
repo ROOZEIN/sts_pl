@@ -4,11 +4,123 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Quiz;
+use App\Models\Question;
+use App\Models\Option;
 
 class QuestController extends Controller
 {
-    public function questview(){
-        return view('quest');
+    // show grid of quizzes
+    public function index()
+    {
+        $quizzes = Quiz::orderBy('id')->get();
+        return view('quests_grid', compact('quizzes'));
+    }
+
+    // show/manage questions for a quiz
+    public function questions(Quiz $quiz)
+    {
+        $quiz->load(['questions.options']);
+        return view('quest_questions', compact('quiz'));
+    }
+
+    // store new question + options
+    public function storeQuestion(Request $r, Quiz $quiz)
+    {
+        $r->validate([
+            'question_text' => 'required|string',
+            'points' => 'nullable|integer',
+            'options' => 'required|array|min:2',
+            'options.*.option_text' => 'required|string',
+            'correct' => 'required|integer|min:0',
+        ]);
+
+        DB::transaction(function () use ($r, $quiz) {
+            $q = $quiz->questions()->create([
+                'question_text' => $r->question_text,
+                'points' => $r->points ?: 1,
+            ]);
+
+            foreach ($r->options as $i => $opt) {
+                $q->options()->create([
+                    'option_text' => $opt['option_text'],
+                    'is_correct' => ($i == (int)$r->correct) ? 1 : 0,
+                ]);
+            }
+        });
+
+        return redirect()->route('quests.questions', $quiz->id)->with('success','Question added.');
+    }
+
+    // edit form
+    public function editQuestion(Quiz $quiz, Question $question)
+    {
+        $quiz->load('questions');
+        $question->load('options');
+        return view('quest_question_edit', compact('quiz','question'));
+    }
+
+    // update question + options
+    public function updateQuestion(Request $r, Quiz $quiz, Question $question)
+    {
+        $r->validate([
+            'question_text' => 'required|string',
+            'points' => 'nullable|integer',
+            'options' => 'required|array|min:2',
+            'options.*.option_text' => 'required|string',
+            'correct' => 'required|integer|min:0',
+        ]);
+
+        DB::transaction(function () use ($r, $question) {
+            $question->update([
+                'question_text' => $r->question_text,
+                'points' => $r->points ?: 1,
+            ]);
+
+            // simple strategy: delete existing options and recreate (keeps code short)
+            $question->options()->delete();
+            foreach ($r->options as $i => $opt) {
+                $question->options()->create([
+                    'option_text' => $opt['option_text'],
+                    'is_correct' => ($i == (int)$r->correct) ? 1 : 0,
+                ]);
+            }
+        });
+
+        return redirect()->route('quests.questions', $quiz->id)->with('success','Question updated.');
+    }
+
+    // delete
+    public function destroyQuestion(Quiz $quiz, Question $question)
+    {
+        $question->options()->delete();
+        $question->delete();
+        return redirect()->route('quests.questions', $quiz->id)->with('success','Question deleted.');
+    }
+
+    // show create form
+    public function create()
+    {
+        return view('quests_create');
+    }
+
+    // store new quiz
+    public function store(Request $r)
+    {
+        $r->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'difficulty' => 'nullable|string',
+        ]);
+
+        $quiz = Quiz::create([
+            'title' => $r->title,
+            'description' => $r->description,
+            'difficulty' => $r->difficulty,
+            'created_by' => auth()->id() ?? 1,
+        ]);
+
+        return redirect()->route('quests.questions', $quiz->id)->with('success', 'Quiz created.');
     }
 
     // show edit page

@@ -15,34 +15,12 @@
             <img src="/images/EduQuest.png" alt="" class="w-[10rem] h-[3rem]">
         </div>
 
-        <div class="w-[2%]"></div>
-
-        <!-- Right Section -->
-        <div class="flex items-center gap-[2rem] w-[20%] justify-center pr-6">
-            <!-- Bell icon -->
-            <img src="/images/solar_bell-bold.png" alt="bell" class="w-[26px] h-[26px]">
-
-            <!-- Profile -->
-            <div class="flex  gap-[1rem]">
-                <img src="/images/pfp.png" alt="Profile" class="w-[45px] h-[45px] rounded-full object-cover">
-                <div class="flex flex-col">
-                    <div class="flex flex-row leading-[1.1] gap-[1rem] mb-[-0.5rem]">
-                        <p class="text-[15px] font-medium text-gray-800">{{ Auth::user()->name }}</p>
-                        <img src="/images/arrowdown.png" alt="" class="w-[1rem] h-[1rem] mt-[1rem]">
-                    </div>
-                    <p class="text-[12.5px] text-gray-600 m-[-0.3rem]">{{ Auth::user()->email }}</p>
-                </div>
-            </div>
-        </div>
-  </header>
-  <section class="font-[montserrat]">
-    <div class="flex flex-row justify-center items-center gap-[58rem]">
-      <h1>Quiz Letak Quartil</h1>
-        <div class="bg-[#ffff] border-solid border-[#4C47D6] rounded-[3rem] w-[10rem] h-[2rem] flex flex-row justify-center items-center gap-[2rem]">
-          <img src="/images/duit.png" alt="duit" class="w-[2rem] h-[1rem]">
-          <p>452</p>
-          <img src="/images/plus.png" alt="plus" class="w-[1rem] h-[1rem]">
-        </div>
+    <div class="bg-white p-6 rounded shadow">
+      <p class="mb-4">Score: <strong>{{ $score }}</strong> / <strong>{{ $max }}</strong></p>
+      <div class="flex gap-2">
+        <a href="{{ route('quiz.question', ['id' => $quiz->id, 'index' => 1]) }}" class="px-4 py-2 bg-[#4C47D6] text-white rounded">Review Answers</a>
+        <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-gray-300 text-gray-800 rounded">Back to dashboard</a>
+      </div>
     </div>
 
     <div class="flex justify-center items-center flex-col ">
