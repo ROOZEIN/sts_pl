@@ -28,6 +28,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // If the authenticated user matches the configured admin email,
+        // send them straight to the admin page and DO NOT use the
+        // previously intended URL (we want admins to land on /admin).
+        // default matches AdminSeeder fallback
+        $adminEmail = env('ADMIN_EMAIL', 'admin@admin.com');
+        if (auth()->check() && auth()->user()->email === $adminEmail) {
+            return redirect()->route('admin');
+        }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

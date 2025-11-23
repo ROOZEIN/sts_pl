@@ -18,7 +18,7 @@ class QuizSeeder extends Seeder
             'title' => 'Cisco',
             'description' => 'Cisco Packet Tracer',
             'difficulty' => 'Sulit',
-            'created_by' => 1, // Ensure user ID 1 exists
+            'created_by' => null, // nullable foreign key; leave null if no user exists
             'created_at' => now(),
             'updated_at' => now(),
         ]);
